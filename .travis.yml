@@ -27,6 +27,7 @@ r_binary_packages:
   - reticulate
   - tensorflow
   - testthat
+  - remotes
 
 install:
   - Rscript -e "remotes::install_deps()"
