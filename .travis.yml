@@ -23,13 +23,15 @@ before_install:
   - python3 -m pip -q install --upgrade pip setuptools
   - python3 -m pip -q install tensorflow
 
-r_binary_packages:
-  - reticulate
-  - tensorflow
-  - testthat
-  - remotes
+# r_binary_packages:
+
 
 install:
+  r_binary_install:
+    - reticulate
+    - tensorflow
+    - testthat
+    - remotes
   - Rscript -e "remotes::install_deps()"
 
 # suppress log size
