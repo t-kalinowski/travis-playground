@@ -1,10 +1,16 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-language: R
-cache: packages
 
 sudo: true
 
-dist: bionic
+
+# https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb
+# https://github.com/rstudio/keras/blob/master/.github/workflows/main.yaml
+#
+
+
+language: r
+
+# dist: bionic
 addons:
   apt:
     packages:
@@ -12,16 +18,13 @@ addons:
       - python3-pip
       - python3-setuptools
 
-r_binary_packages:
-  - reticulate
-  - tensorflow
 
-install:
+before_install:
   - python3 -m pip -q install --upgrade pip setuptools
   - python3 -m pip install tensorflow
 
 
+# suppress log size
 git:
   quiet: true
   depth: 3
-
