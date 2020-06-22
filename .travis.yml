@@ -1,0 +1,25 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+dist: bionic
+sudo: true
+addons:
+  apt:
+    packages:
+      - python3-venv
+      - python3-pip
+      - python3-setuptools
+
+install:
+  - python3 -m pip -q install --upgrade pip setuptools
+  - python3 -m pip -q install tensorflow
+
+r_binary_packages:
+  - reticulate
+  - tensorflow
+
+git:
+  quiet: true
+  depth: 3
+
+language: R
+cache: packages
